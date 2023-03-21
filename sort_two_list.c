@@ -16,10 +16,10 @@ struct ListNode* new_node(int value, struct ListNode* next) {
 void printList(struct ListNode* node){
 	while(node != NULL){
 		printf("[%d]", node->val);
-		node = node->next;
-		if(node != NULL){
+		if(node->next != NULL){
 			printf("->");
 		}
+		node = node->next;
 	}
 }
  
