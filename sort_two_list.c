@@ -15,8 +15,11 @@ struct ListNode* new_node(int value, struct ListNode* next) {
 
 void printList(struct ListNode* node){
 	while(node != NULL){
-		printf("%d \n", node->val);
+		printf("[%d]", node->val);
 		node = node->next;
+		if(node != NULL){
+			printf("->");
+		}
 	}
 }
  
@@ -30,7 +33,6 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
         if(list1->val <= list2->val){
             result->val = list1->val;
             result->next = result2;
-			printf("Result: %d\n", result->val);
 			result = result->next;
 			if(list1->next == NULL){
 				break;
@@ -39,7 +41,6 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
         }else{
             result->val = list2->val;
             result->next = result2;
-			printf("Result: %d\n", result->val);
             result = result->next;
 			if(list2->next == NULL){
 				break;
@@ -63,11 +64,9 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
 	}
 	else {
 		while(list2 != NULL){
-			printf("Liste2: %d\n", list2->val);
 			struct ListNode* result2 = calloc(1,sizeof(struct ListNode));
 			
 			result->val = list2->val;
-			printf("Result, Schlrifr 2: %d\n", result->val);
 			if(list2->next != NULL){
 				result->next = result2;
 			}
